@@ -2,42 +2,81 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package RegistroAcademico;
+package RegistroAcademico.codeup.academico.domain;
+
+import RegistroAcademico.codeup.academico.service.CalculoService;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.UUID;
 
 /**
  *
  * @author anonimo
  */
 public class Estudiante {
+    private final String id = UUID.randomUUID().toString();
     private String name;
     private int age;
-    private double grade1, grade2, grade3;
+    private List<Nota> notas;
 
-    public Estudiante(String name, int age, double grade1, double grade2, double grade3) {
+    public Estudiante(String name, int age) {
         this.name = name;
         this.age = age;
-        this.grade1 = grade1;
-        this.grade2 = grade2;
-        this.grade3 = grade3;
+        this.notas = new ArrayList<>();
+      
     }
-
+    
     public String getName() {
         return name;
     }
     
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    
     public int getAge() {
         return age;
     }
-
-    public void setAge(int age) {
-        this.age = age;
+ 
+    public String getId(){ return id ;}
+    
+    
+    public void agregarNota(Nota nota){
+        if(notas.size() >= 3){
+            throw new IllegalStateException("El estudiante no puede tener mas de 3 notas");
+        }
+        notas.add(nota);
     }
+    
+    
+    
+   
+    public List<Nota> getNotas(){ return notas; }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
     public double getGrade1() {
         return grade1;
     }
@@ -76,10 +115,8 @@ public class Estudiante {
         return calculateAverage() >= 3.0;
     }
     
-    void hola(){
-        System.out.println("hola");
-    }
-    
-   
+   */
+
+  
    
 }
