@@ -186,3 +186,5 @@ El sistema incluye manejo robusto de errores:
 - Gráficos estadísticos
 - API REST para integración
 - Internacionalización (i18n)
+
+  
